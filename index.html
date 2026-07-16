@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>钟广锐 · 空间智能与 AI 工程化</title>
+<meta name="description" content="双师型教师 · 独立开发者 · AI 工程化实践者 —— 把 AI 能力真正嵌入业务，交付可运行的系统。">
+<style>
+  :root{
+    --bg:#f4f8fb;
+    --surface:#ffffff;
+    --ink:#1f2d3d;
+    --ink-soft:#5b6b7b;
+    --ink-faint:#93a2b1;
+    --line:#e7eef4;
+    --teal:#14b8a6;
+    --teal-soft:#e6faf6;
+    --blue:#3b82f6;
+    --blue-soft:#e8f1fe;
+    --indigo:#6366f1;
+    --indigo-soft:#ecebfe;
+    --amber:#f59e0b;
+    --amber-soft:#fef4e3;
+    --green:#10b981;
+    --shadow:0 10px 30px -12px rgba(31,45,61,.18);
+    --shadow-sm:0 4px 14px -6px rgba(31,45,61,.14);
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:78px 0}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,248,251,.82);backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:9px;font-size:17px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue))}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;color:var(--ink-soft)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--teal)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 380px at 82% -10%,var(--teal-soft),transparent 60%),
+      radial-gradient(760px 360px at 8% 8%,var(--blue-soft),transparent 55%),
+      var(--surface);
+    border-bottom:1px solid var(--line);
+    padding:96px 0 84px;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--teal-soft);color:#0d9488;font-weight:600;font-size:13.5px;
+    padding:7px 15px;border-radius:999px;margin-bottom:24px;
+  }
+  .badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(20,184,166,.5);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(20,184,166,.45)}70%{box-shadow:0 0 0 10px rgba(20,184,166,0)}100%{box-shadow:0 0 0 0 rgba(20,184,166,0)}}
+  .hero h1{font-size:clamp(34px,5.2vw,54px);line-height:1.15;font-weight:850;letter-spacing:-.5px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.1vw,19px);color:var(--ink-soft);max-width:660px}
+  .roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .role{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 15px;font-size:14px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .role span{color:var(--teal)}
+  .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:26px;color:var(--ink-faint);font-size:14.5px}
+  .hero-meta b{color:var(--ink-soft);font-weight:600}
+
+  /* ---------- section head ---------- */
+  .sec-head{max-width:720px;margin-bottom:46px}
+  .sec-kicker{color:var(--teal);font-weight:700;font-size:13.5px;letter-spacing:2px;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-top:10px;letter-spacing:-.3px}
+  .sec-head p{color:var(--ink-soft);margin-top:14px;font-size:16px}
+
+  /* ---------- philosophy ---------- */
+  .philo{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .philo .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+  .philo .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .philo .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+  .philo h3{font-size:19px;font-weight:750}
+  .philo p{color:var(--ink-soft);font-size:15px;margin-top:10px}
+  .equals{text-align:center;margin-top:34px;color:var(--ink-soft);font-size:16.5px}
+  .equals b{color:var(--ink);font-weight:750}
+  @media(max-width:760px){.philo{grid-template-columns:1fr}}
+
+  /* ---------- layers ---------- */
+  .layers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .layer{border-radius:var(--r);padding:32px 28px;position:relative;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+  .layer:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .layer .tag{font-size:13px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;display:inline-block}
+  .layer h3{font-size:21px;font-weight:800;margin:16px 0 6px}
+  .layer .sub{font-size:14px;font-weight:600;color:var(--ink-soft)}
+  .layer p{font-size:14.5px;color:var(--ink-soft);margin-top:12px}
+  .layer .fit{margin-top:18px;font-size:13.5px;color:var(--ink-faint);border-top:1px dashed var(--line);padding-top:14px}
+  .layer .bar{position:absolute;left:0;top:0;height:4px;width:100%}
+  .l-sys .tag{background:var(--indigo-soft);color:var(--indigo)} .l-sys .bar{background:var(--indigo)}
+  .l-prj .tag{background:var(--teal-soft);color:#0d9488} .l-prj .bar{background:var(--teal)}
+  .l-tool .tag{background:var(--amber-soft);color:#c2740a} .l-tool .bar{background:var(--amber)}
+  @media(max-width:760px){.layers{grid-template-columns:1fr}}
+
+  /* ---------- cases ---------- */
+  .filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+  .filter button{border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);font-family:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+  .filter button:hover{border-color:var(--teal);color:var(--teal)}
+  .filter button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .case{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+  .case:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .case .k{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .case .lv{font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:999px}
+  .lv.sys{background:var(--indigo-soft);color:var(--indigo)}
+  .lv.prj{background:var(--teal-soft);color:#0d9488}
+  .lv.tool{background:var(--amber-soft);color:#c2740a}
+  .case .emoji{font-size:22px}
+  .case h4{font-size:16.5px;font-weight:750;line-height:1.4}
+  .case .scene{font-size:13.5px;color:var(--ink-faint);margin-top:9px}
+  .case .val{font-size:14px;color:var(--ink-soft);margin-top:12px;padding-top:12px;border-top:1px solid var(--line);flex:1}
+  .case .val b{color:var(--teal);font-weight:700}
+  @media(max-width:900px){.cases{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cases{grid-template-columns:1fr}}
+
+  /* ---------- stack ---------- */
+  .stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .stack-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm)}
+  .stack-card h3{font-size:16px;font-weight:750;display:flex;align-items:center;gap:9px;margin-bottom:16px}
+  .stack-card h3 i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:6px 12px;font-size:13px;color:var(--ink-soft);font-weight:500}
+  @media(max-width:760px){.stack-grid{grid-template-columns:1fr}}
+
+  /* ---------- open source ---------- */
+  .repos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .repo{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-sm);transition:transform .2s,border-color .2s}
+  .repo:hover{transform:translateY(-4px);border-color:var(--teal)}
+  .repo .rn{font-weight:750;font-size:15px;display:flex;align-items:center;gap:8px}
+  .repo .rn svg{width:16px;height:16px;fill:var(--ink-faint)}
+  .repo p{font-size:13px;color:var(--ink-soft);margin-top:8px}
+  .repo .lang{margin-top:12px;font-size:12px;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
+  .repo .lang i{width:9px;height:9px;border-radius:50%;display:inline-block}
+  @media(max-width:900px){.repos{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.repos{grid-template-columns:1fr}}
+
+  /* ---------- process ---------- */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:step}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 18px;box-shadow:var(--shadow-sm);position:relative}
+  .step .n{counter-increment:step;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--teal),var(--blue));width:30px;height:30px;border-radius:9px;display:grid;place-items:center;margin-bottom:14px}
+  .step .n::before{content:counter(step)}
+  .step h4{font-size:15px;font-weight:750}
+  .step p{font-size:12.5px;color:var(--ink-soft);margin-top:7px}
+  @media(max-width:900px){.flow{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.flow{grid-template-columns:1fr}}
+
+  /* ---------- promise ---------- */
+  .promise{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+  .pr{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-sm)}
+  .pr .ck{flex:none;width:26px;height:26px;border-radius:8px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-weight:800}
+  .pr div p:first-child{font-weight:700;font-size:14.5px}
+  .pr div p:last-child{font-size:13.5px;color:var(--ink-soft);margin-top:3px}
+  @media(max-width:760px){.promise{grid-template-columns:1fr}}
+
+  /* ---------- quote / cta ---------- */
+  .cta{
+    background:linear-gradient(135deg,#0f766e,#155e9c);
+    border-radius:26px;padding:56px 44px;color:#fff;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at 80% 0,rgba(255,255,255,.12),transparent 60%)}
+  .cta .q{font-size:clamp(19px,2.6vw,26px);font-weight:750;line-height:1.5;position:relative;max-width:760px;margin:0 auto}
+  .cta .sub{margin-top:20px;color:rgba(255,255,255,.85);position:relative;font-size:15.5px}
+  .cta .who{margin-top:30px;position:relative;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-size:14px}
+  .cta .who span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:8px 16px;border-radius:999px}
+
+  /* ---------- footer ---------- */
+  footer{padding:46px 0 60px;text-align:center;color:var(--ink-faint);font-size:13.5px}
+  footer .name{color:var(--ink);font-weight:750;font-size:16px;margin-bottom:8px}
+  footer a{color:var(--teal);font-weight:600}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand"><span class="dot"></span> 钟广锐 · 空间智能</div>
+    <div class="nav-links">
+      <a href="#philo">能力内核</a>
+      <a href="#layers">协作方式</a>
+      <a href="#cases">精选作品</a>
+      <a href="#stack">技术栈</a>
+      <a href="#oss">开源</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="pulse"></span> GIS · 遥感 · AI 工程化</div>
+    <h1>把 AI 能力<span class="grad">真正嵌入业务</span>，<br>交付一套可以运行的系统。</h1>
+    <p class="lead">我不交 PPT，也不接"照着做"的活。我理解业务逻辑，找到自动化切入点，设计技术方案，然后交付能跑起来的东西——从数据到模型，从工具到系统。</p>
+    <div class="roles">
+      <div class="role"><span>◆</span> 双师型教师</div>
+      <div class="role"><span>◆</span> 独立开发者</div>
+      <div class="role"><span>◆</span> AI 工程化实践者</div>
+      <div class="role"><span>◆</span> GIS 教育产品化</div>
+    </div>
+    <div class="hero-meta">
+      <div>📍 <b>广东梅州</b> · 服务全国（远程为主，粤东/珠三角可现场）</div>
+      <div>🎓 <b>地理信息 / 测绘遥感</b> 方向</div>
+      <div>🛠️ <b>120+</b> 自研技能资产</div>
+    </div>
+  </div>
+</header>
+
+<!-- PHILOSOPHY -->
+<section id="philo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Why me</div>
+      <h2>三种能力同时具备，才是我的价值</h2>
+      <p>单独看，每一项都不稀缺。难的是把它们长在同一个人身上——这决定了我能一个人把一件事从想法做到落地。</p>
+    </div>
+    <div class="philo">
+      <div class="card reveal">
+        <div class="ic" style="background:var(--teal-soft)">📖</div>
+        <h3>教学深度</h3>
+        <p>能把复杂技术讲明白，让客户团队真正接得住、用得起来。交付的不只是系统，还有一套能自己维护的能力。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic" style="background:var(--blue-soft)">🔧</div>
+        <h3>工程落地</h3>
+        <p>方案不停留在文档里。从前后端、AI 模型到部署，一个人闭环完成，不会有"前端说是后端问题"的对接损耗。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic" style="background:var(--indigo-soft)">🔬</div>
+        <h3>科研前瞻</h3>
+        <p>持续跟踪前沿（3DGS、VLM、遥感智能计算），能把还在论文里的方法，变成客户业务里可用的方案。</p>
+      </div>
+    </div>
+    <p class="equals reveal">教学深度 × 工程落地 × 科研前瞻 = <b>单一角色难以替代的全链路交付能力</b></p>
+  </div>
+</section>
+
+<!-- LAYERS -->
+<section id="layers" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">How we work</div>
+      <h2>三种协作深度，从最痛的点开始</h2>
+      <p>不需要一上来就选最重的方案。从一个工具、一个环节切入都行——工具能组合成方案，方案能长成系统，每一次都在积累可复用的能力。</p>
+    </div>
+    <div class="layers">
+      <div class="layer l-tool reveal">
+        <div class="bar"></div>
+        <span class="tag">工具层</span>
+        <h3>提升人效比</h3>
+        <div class="sub">不改流程、不加编制、不换系统</div>
+        <p>一个脚本、一个插件、一个小程序，直接作用于最费时费力的那个环节，立竿见影。</p>
+        <div class="fit">适合：有明确痛点、希望快速见效的团队与个人</div>
+      </div>
+      <div class="layer l-prj reveal">
+        <div class="bar"></div>
+        <span class="tag">项目层</span>
+        <h3>业务逻辑数智化升级</h3>
+        <div class="sub">把业务逻辑翻译成可执行的技术路径</div>
+        <p>交付的不是咨询报告，而是含技术路线、实施路径、成果验证的方案，可直接执行或交给团队实施。</p>
+        <div class="fit">适合：有技术团队、需要专业方案指导的组织</div>
+      </div>
+      <div class="layer l-sys reveal">
+        <div class="bar"></div>
+        <span class="tag">系统层</span>
+        <h3>业务架构融合设计</h3>
+        <div class="sub">把 AI 能力嵌入核心流程</div>
+        <p>深度参与业务架构设计，从数据架构到人机协作模式，交付一套重构后的完整业务系统。</p>
+        <div class="fit">适合：业务清晰但缺少系统支撑的政府/企业</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Selected work</div>
+      <h2>精选作品</h2>
+      <p>覆盖政府、教育、工程测绘、电商与 AI 团队的真实场景。每一件都以"业务被改变了什么"来衡量，而不是用了多少技术名词。</p>
+    </div>
+
+    <div class="filter reveal">
+      <button class="on" data-f="all">全部</button>
+      <button data-f="sys">系统层</button>
+      <button data-f="prj">项目层</button>
+      <button data-f="tool">工具层</button>
+    </div>
+
+    <div class="cases">
+      <!-- 系统层 -->
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">🚁</span></div>
+        <h4>无人机林区巡检监管系统</h4>
+        <div class="scene">林区常态化巡检，人工效率低、覆盖小</div>
+        <div class="val">自动起飞 → AI 实时识别 → 自动告警 → 一键成报。单架次覆盖从 <b>5 公里级提升到 50 公里级</b>，异常从事后发现变实时告警。</div>
+      </div>
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">💧</span></div>
+        <h4>小型水库智能监测平台</h4>
+        <div class="scene">数十座水库水位/坝体/环境多维监测</div>
+        <div class="val">传感器 7×24 采集 + 二三维 GIS 一张图实时呈现，阈值超标自动推送。<b>暴雨天系统先于人工发现危险</b>，报表一键生成。</div>
+      </div>
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">🛰️</span></div>
+        <h4>固废遥感智能检测系统</h4>
+        <div class="scene">违规固废堆放巡查覆盖有限、滞后</div>
+        <div class="val">高分卫星定期扫描 → AI 自动识别疑似点 → 工单闭环。巡查覆盖从每天 10 km² 到<b>单次 500+ km²</b>，从"等举报"变主动扫描。</div>
+      </div>
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">🏷️</span></div>
+        <h4>智能图像标注系统</h4>
+        <div class="scene">AI 团队大量时间消耗在数据标注上</div>
+        <div class="val">分割大模型 + 快速预标注，人工只需微调确认。<b>一人日审核量从 200 提到 800 张</b>，数据不出本地、CPU 可跑。</div>
+      </div>
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">📊</span></div>
+        <h4>H5 智能评测平台</h4>
+        <div class="scene">青少年多维能力评测，纸质数据难量化</div>
+        <div class="val">在线答题 → 自动计分 → 雷达图实时生成 → 报告一键导出。评测从每人 2 小时到 <b>30 分钟在线完成</b>。</div>
+      </div>
+      <div class="case reveal" data-c="sys">
+        <div class="k"><span class="lv sys">系统层</span><span class="emoji">🏙️</span></div>
+        <h4>三维规划仿真辅助决策系统</h4>
+        <div class="scene">城市规划方案比选、日照/视域分析</div>
+        <div class="val">三维场景实时渲染、多方案同屏对比、一键分析。评审现场"左移 50 米"当场看效果，<b>一个三维场景回答所有问题</b>。</div>
+      </div>
+
+      <!-- 项目层 -->
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">🔗</span></div>
+        <h4>AI 项目服务链六环节方案</h4>
+        <div class="scene">想落地 AI 却形成不了闭环</div>
+        <div class="val">数据集 → 标注 → 增强 → 训练 → 部署 → 工程化，六环节通盘方案。建立的是<b>"数据→模型→系统"的可复制能力</b>，而非一堆工具。</div>
+      </div>
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">🗺️</span></div>
+        <h4>ArcPy 空间分析工具箱矩阵</h4>
+        <div class="scene">GIS 分析靠手工点击，换项目重做</div>
+        <div class="val">四个工具箱 + 22+ 子工具，一键执行。新人从"跟老员工学三个月"到<b>看教程自主上手</b>，交付周期缩短 50%+。</div>
+      </div>
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">☁️</span></div>
+        <h4>遥感智能计算三云平台案例库</h4>
+        <div class="scene">遥感项目绑定单一平台，换平台重学</div>
+        <div class="val">一套方法论 → 三平台并行实现。<b>任一平台变动都不影响业务连续性</b>，方法可复用。</div>
+      </div>
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">🧊</span></div>
+        <h4>3DGS 实景三维 + 空间物理智能</h4>
+        <div class="scene">实景三维只能"看"，不能"算"</div>
+        <div class="val">从可视化升级为可计算：由重建的建筑<b>自动推断墙体厚度/导热率</b>，与无人机巡检形成技术矩阵。</div>
+      </div>
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">🏢</span></div>
+        <h4>建筑外墙无人机智能复检</h4>
+        <div class="scene">外墙检测靠吊篮拍照，危险、逐张看图</div>
+        <div class="val">可见光 + 红外双光同步采集 + 双模型识别裂缝/空鼓/渗水 + 变化检测。<b>一人一天一栋楼 → 一个架次三栋楼</b>，AI 自动出报告。</div>
+      </div>
+      <div class="case reveal" data-c="prj">
+        <div class="k"><span class="lv prj">项目层</span><span class="emoji">🎓</span></div>
+        <h4>教学技能包（17 个 · 已开源）</h4>
+        <div class="scene">教师各自手写大纲/笔记/批改，难复用</div>
+        <div class="val">覆盖"大纲→笔记→实验→评测→就业→科研"全链路，一键生成标准化教学产物，<b>已整合上传 GitHub 可直接复用</b>。</div>
+      </div>
+
+      <!-- 工具层 -->
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">🏨</span></div>
+        <h4>多平台比价助手</h4>
+        <div class="scene">跨四平台手工比价，每单约 20 分钟</div>
+        <div class="val">批量输入 → 多平台自动搜索 → 价格/房型并行采集对比。<b>每单 20 分钟 → 不到 1 分钟</b>。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">📑</span></div>
+        <h4>订单核对与账单分析工具</h4>
+        <div class="scene">多渠道订单 SKU 级对账，手工半天还出错</div>
+        <div class="val">上传 Excel → 自动分析 → 差异高亮 → 报告导出。<b>半天 → 10 分钟</b>，错误率约 5% → 低于 0.1%。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">🕸️</span></div>
+        <h4>知识图谱自动生成工具</h4>
+        <div class="scene">教学/业务知识体系需交互式展示</div>
+        <div class="val">输入一段文本 → AI 抽取知识体系 → <b>生成可交互 D3.js 知识图谱网页</b>，节点大小=层级、颜色=版块。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">📈</span></div>
+        <h4>课程达成度分析工具</h4>
+        <div class="scene">工程认证要算达成度，Excel 手算半天</div>
+        <div class="val">Excel 导入 → 自动计算 → 可视化报告；新版接入大模型自动读大纲<b>一键生成分析报告</b>，半天 → 10 分钟。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">🌐</span></div>
+        <h4>WebGIS 三维可视化开发</h4>
+        <div class="scene">招商/规划/文旅需交互式地图展示</div>
+        <div class="val">Cesium / Mapbox / Leaflet 全栈能力，覆盖<b>招商一张图、三维辅助、时空可视化</b>，静态图无法呈现的空间关系一目了然。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">🪧</span></div>
+        <h4>点云智能处理工具</h4>
+        <div class="scene">点云处理流程复杂，商业软件授权贵</div>
+        <div class="val">去噪 → 超分重建 → ICP 配准 → 分类导出，桌面化工程。<b>从依赖商业软件到开源工具链自主可控</b>。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">📄</span></div>
+        <h4>简历智能评估系统</h4>
+        <div class="scene">批量评估简历，人工逐份阅读耗时</div>
+        <div class="val">自动解析 → 多维评分 → 雷达图 → 分级诊断 + 提升路径。<b>人工 30 分钟/份 → 自动 1 分钟/份</b>。</div>
+      </div>
+      <div class="case reveal" data-c="tool">
+        <div class="k"><span class="lv tool">工具层</span><span class="emoji">📡</span></div>
+        <h4>AI 行业动态监控（AI Pulse）</h4>
+        <div class="scene">行业动态散落各处，人工追踪成本高</div>
+        <div class="val">多源自动采集 → 去重评分 → 静态快照，打开网页即看行业脉搏。<b>每日自动刷新，既是内容工具也是能力展示</b>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Tech stack</div>
+      <h2>技术栈全景</h2>
+      <p>从空间数据到深度学习，从桌面应用到全栈系统——覆盖 AI 项目落地所需的完整链路。</p>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <h3><i style="background:var(--teal)"></i> GIS / 遥感</h3>
+        <div class="chips">
+          <span class="chip">ArcPy / ArcGIS Pro</span><span class="chip">PIE-Engine</span><span class="chip">GEE / OGE 三云平台</span>
+          <span class="chip">Cesium 二三维</span><span class="chip">SuperMap</span><span class="chip">PostGIS</span><span class="chip">高分遥感</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <h3><i style="background:var(--blue)"></i> AI / 深度学习</h3>
+        <div class="chips">
+          <span class="chip">PyTorch</span><span class="chip">YOLOv8 / YOLO11</span><span class="chip">SAM3 分割</span>
+          <span class="chip">Qwen3-VL</span><span class="chip">ByteTrack</span><span class="chip">Kmeans-CNN</span><span class="chip">GAN-UNet</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <h3><i style="background:var(--indigo)"></i> 前沿方向</h3>
+        <div class="chips">
+          <span class="chip">3DGS 高斯溅射</span><span class="chip">空间物理智能</span><span class="chip">生成式预训练</span>
+          <span class="chip">Vision Banana 范式</span><span class="chip">VLM 场景理解</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <h3><i style="background:var(--amber)"></i> 工程 / 全栈</h3>
+        <div class="chips">
+          <span class="chip">Node.js</span><span class="chip">Vue 3 / Vite</span><span class="chip">Express.js</span>
+          <span class="chip">PyQt5 桌面</span><span class="chip">Jetson 边缘部署</span><span class="chip">SSG / GitHub Pages</span><span class="chip">ECharts / D3.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section id="oss">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Open source</div>
+      <h2>开源作品 · GitHub</h2>
+      <p>把能沉淀的能力开源出来。既是能力的公开证明，也让同行与客户可以直接检验、复用。</p>
+    </div>
+    <div class="repos">
+      <a class="repo reveal" href="https://github.com/mzatun/teaching-tools" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> teaching-tools</div>
+        <p>17 个教学技能包整合，覆盖大纲→笔记→实验→评测→就业→科研全链路。</p>
+        <div class="lang"><i style="background:#f1e05a"></i> 教学工具集 · ⭐ 开源</div>
+      </a>
+      <a class="repo reveal" href="https://mzatun.github.io/ai-pulse/" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> ai-pulse</div>
+        <p>证据驱动的 AI 行业动态监控站点，多源采集 + 每日自动刷新，SSG 部署。</p>
+        <div class="lang"><i style="background:#3178c6"></i> Node.js · GitHub Pages</div>
+      </a>
+      <a class="repo reveal" href="https://github.com/mzatun" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> 智能标注系统</div>
+        <p>分割大模型 + 快速预标注的桌面标注工具，CPU 可运行，一键导出主流训练格式。</p>
+        <div class="lang"><i style="background:#3572A5"></i> Python · PyQt5</div>
+      </a>
+      <a class="repo reveal" href="https://github.com/mzatun" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> 无人机巡检系统</div>
+        <p>YOLOv8 + ByteTrack + VLM + Jetson 边缘推理，含完整 GB/T 标准工程文档。</p>
+        <div class="lang"><i style="background:#3572A5"></i> Python · 边缘计算</div>
+      </a>
+      <a class="repo reveal" href="https://github.com/mzatun" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> 数据增强工具</div>
+        <p>AI 项目服务链中的数据增强环节，含 6 份 GB/T 标准工程文档。</p>
+        <div class="lang"><i style="background:#3572A5"></i> Python</div>
+      </a>
+      <a class="repo reveal" href="https://github.com/mzatun" target="_blank" rel="noopener">
+        <div class="rn"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> github.com/mzatun</div>
+        <p>更多项目：点云处理、FarmVision、GIS 工具箱与研究复现等，持续更新中。</p>
+        <div class="lang"><i style="background:var(--teal)"></i> 26+ 公开仓库</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Process</div>
+      <h2>合作方式，清清楚楚</h2>
+      <p>从一次免费诊断开始，每两周一个可验收版本，方向偏了趁早调整。不含糊，不绕弯。</p>
+    </div>
+    <div class="flow">
+      <div class="step reveal"><div class="n"></div><h4>免费诊断</h4><p>聊清业务痛点，判断是否适合用技术解决、匹配哪一层。不合作也能带走一个诊断意见。</p></div>
+      <div class="step reveal"><div class="n"></div><h4>方案设计</h4><p>交付方案文档：解决什么、技术路线、分几阶段、每阶段多久。</p></div>
+      <div class="step reveal"><div class="n"></div><h4>迭代交付</h4><p>每 1–2 周一个可验收版本，不等几个月一次性验收。</p></div>
+      <div class="step reveal"><div class="n"></div><h4>上线验收</h4><p>全部源码、文档、培训一并交付，团队能自己接手。</p></div>
+      <div class="step reveal"><div class="n"></div><h4>维护支持</h4><p>交付后一段时间免费支持，确保稳定运行。</p></div>
+    </div>
+
+    <div class="promise" style="margin-top:34px">
+      <div class="pr reveal"><div class="ck">✓</div><div><p>做完了能用</p><p>每个里程碑版本现场验证，不是最后一次性交付。</p></div></div>
+      <div class="pr reveal"><div class="ck">✓</div><div><p>代码看得懂</p><p>完整源码 + 环境配置 + 中文图文使用说明书。</p></div></div>
+      <div class="pr reveal"><div class="ck">✓</div><div><p>人走了有人管</p><p>标准工程文档 + 运维教程 + 现场/线上培训。</p></div></div>
+      <div class="pr reveal"><div class="ck">✓</div><div><p>数据是安全的</p><p>数据全程不出客户环境，可签保密协议。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <p class="q">"我能帮你做的，不是写代码、不是讲概念——<br>是让你业务里那些不该由人做的事，交给机器。"</p>
+      <p class="sub">工具能升级为方案，方案能长成系统。每一次交付，都让下一次更好。</p>
+      <div class="who">
+        <span>🏛️ 政府 / 公共部门</span>
+        <span>🎓 教育机构</span>
+        <span>📐 工程 / 测绘企业</span>
+        <span>🛒 电商 / 贸易</span>
+        <span>🤖 AI / 科技团队</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="name">钟广锐</div>
+    <div>双师型独立开发者 · AI 全链路交付者 · 空间智能实践者</div>
+    <div style="margin-top:10px">📍 广东梅州 · 服务全国（远程为主，粤东 / 珠三角可现场）</div>
+    <div style="margin-top:14px"><a href="https://github.com/mzatun" target="_blank" rel="noopener">github.com/mzatun</a></div>
+    <div style="margin-top:22px;color:var(--ink-faint);font-size:12.5px">© 2026 钟广锐 · 空间智能与 AI 工程化</div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+
+  // case filter
+  const btns=document.querySelectorAll('.filter button');
+  const cards=document.querySelectorAll('.case');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    const f=b.dataset.f;
+    cards.forEach(c=>{
+      const show=(f==='all'||c.dataset.c===f);
+      c.style.display=show?'':'none';
+    });
+  }));
+</script>
+</body>
+</html>
