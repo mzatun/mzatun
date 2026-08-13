@@ -11,6 +11,21 @@
 🛠️ **独立开发者** · **AI 全链路交付者** · **OPC 一人企业咨询师**  
 📍 广东梅州，服务粤东区域发展与低空经济示范区建设
 
+<p align="center">
+  <a href="https://mzatun.github.io/">
+    <img src="https://img.shields.io/badge/🌐%20在线作品站-mzatun.github.io-1f6feb?style=for-the-badge&logo=githubpages&logoColor=white" alt="在线作品站">
+  </a>
+  <a href="https://mzatun.github.io/#live">
+    <img src="https://img.shields.io/badge/🚀%20打开即用-Live%20Demos-2ea043?style=for-the-badge" alt="在线演示">
+  </a>
+  <a href="https://mzatun.github.io/">
+    <img src="https://img.shields.io/badge/📥%20接%20GIS·遥感·AI%20定制-闲鱼%2F微信-orange?style=for-the-badge" alt="接单定制">
+  </a>
+</p>
+
+> 🟢 **当前开放接单**：GIS/遥感数据处理 · ArcPy 脚本工具 · 深度学习模型训练 · 无人机/三维建模 · 教学课件与毕业设计技术指导 · 标书与技术方案编写。  
+> 渠道：闲鱼搜索「龙虾GIS」 / 微信（备注"业务咨询"）/ 本仓库 GitHub Issue。建议先看 [在线作品站](https://mzatun.github.io/) 确认匹配度，再聊需求。
+
 ---
 
 ## 🧭 我是谁 / Who Am I
@@ -111,6 +126,8 @@
 - 🏫 **单位**：嘉应学院（广东 · 梅州）
 - 🌐 **GitHub**：[@mzatun](https://github.com/mzatun)
 - 💬 **业务合作**：微信（备注"业务咨询"）/ 通过 GitHub Issue
+- 🐟 **闲鱼接单**：搜索关键词「龙虾GIS」（GIS·遥感·AI 定制与咨询，含毕业设计技术指导）
+- 🖥️ **在线作品站**：[mzatun.github.io](https://mzatun.github.io/)（含打开即用 Live Demos，建议先看作品再聊需求）
 - 📍 **服务范围**：全国远程交付为主，珠三角/粤东可现场
 
 > 🦞 *"教学相长，把研究变成可部署的 AI 解决方案。"*
