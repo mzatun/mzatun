@@ -46,7 +46,9 @@
 双师型三位一体交付能力
 ```
 
-**七业联动**支撑体系：教学相长 · AI 项目 · 脚本工具 · 内容生产 · 政策研究 · 数字业务 · 技能生态（120+ 自研技能）。
+**七业联动**支撑体系：教学相长 · AI 项目 · 脚本工具 · 内容生产 · 政策研究 · 数字业务 · 技能生态（170+ 自研技能，2026-09 实测）。
+
+> 📅 **最近动态（2026-09）**：双师型课程成果链全量开源——从一篇教程到 15 章教材、117 页印刷级 PDF、53 份课程体系，"生产 ⇄ 教学"双向迭代走通。详见下方 [课程成果链](#-2026-09-课程成果链全量开源) 区块。
 
 ---
 
@@ -62,7 +64,7 @@
 
 **三层关系**：工具可组合为项目方案，项目方案可升级为系统产品。每次交付都在积累可复用的模块。
 
-**代表案例（30 个，详见下方文档）**：林翼巡无人机巡检系统 · 小型水库智能监测平台 · 梅州固废遥感检测 · LabelPaw 智能标注 · H5 智能评测平台 · ArcPy 工具箱矩阵 · 遥感三云平台教学库 · 3DGS+空间物理智能 · 课程达成度分析工具 · 教学相长技能包(17个) · AI Pulse 行业监控 · 订单核对工具（已商业化交付）等。
+**代表案例（30 个，详见下方文档）**：林翼巡无人机巡检系统 · 小型水库智能监测平台 · 梅州固废遥感检测 · LabelPaw 智能标注 · H5 智能评测平台 · ArcPy 工具箱矩阵 · 遥感三云平台教学库 · 3DGS+空间物理智能 · 课程达成度分析工具 · 教学相长技能包(17个) · 本体论课程体系(53 份全绿) · AI Pulse 行业监控 · 订单核对工具（已商业化交付）等。
 
 ---
 
@@ -81,12 +83,23 @@
 
 ## 🚀 开源仓库 / Code Repos
 
+### 🎓 2026-09 课程成果链（全量开源）
+> 一条走通并公开复现的路径：**一篇教程 → 五卷教程 → 15 章教材 → 32 学时配套 → 53 份课程体系**
+
+| 仓库 | 说明 |
+|------|------|
+| [**FDE-tutorial-to-course**](https://github.com/mzatun/FDE-tutorial-to-course) | FDE 双师型课程成果站：教程五卷 × 15 章教材 × 32 学时配套 × 53 份课程体系，含可复现工具链 |
+| [**ontology-fde-course**](https://github.com/mzatun/ontology-fde-course) | 《本体论教程：从入门到 FDE 交付》——教程七卷 4.4 万字（HTML）+ 教材八章印刷级 PDF + 53 份课程体系，[成果站](https://mzatun.github.io/ontology-fde-course/) |
+| [**vibe-coding-ai-course**](https://github.com/mzatun/vibe-coding-ai-course) | 《氛围编程与 AI 应用创作》嘉应学院公选课（32 学时）——教程六卷 3.2 万字 + 117 页全书 PDF，[成果站](https://mzatun.github.io/vibe-coding-ai-course/) |
+| [**ai-pulse**](https://github.com/mzatun/ai-pulse) ⭐1 | AI Agent · FDE · OPC 证据驱动的行业动态监控站（SSG，一手证据可溯源） |
+
 ### 📦 教学与工具（可直接复用）
 | 仓库 | 说明 |
 |------|------|
 | [**teaching-tools**](https://github.com/mzatun/teaching-tools) | 教学工具与技能集合：达成度分析工具、H5 评测平台、GEE 土地利用下载器、WorkBuddy 教学技能包 |
 | [**arcpy-script-tutorial**](https://github.com/mzatun/arcpy-script-tutorial) | ArcPy 脚本编程教程：30+ HTML 笔记 + 5 个精选工具箱实例 |
 | [**GeoAI_LabelStudio**](https://github.com/mzatun/GeoAI_LabelStudio) | GIS/遥感 AI 图像标注工具（GeoTIFF 原生支持） |
+| [**ontology-driven-dev**](https://github.com/mzatun/ontology-driven-dev) | 本体驱动业务系统开发技能：需求探索→本体建模→应用构建三步法（七模型本体 YAML） |
 
 ### 🛰️ 代表 AI / GIS 项目
 | Project | Description | Link |
@@ -131,3 +144,7 @@
 - 📍 **服务范围**：全国远程交付为主，珠三角/粤东可现场
 
 > 🦞 *"教学相长，把研究变成可部署的 AI 解决方案。"*
+
+---
+
+<sub>🕐 最后更新：2026-09-30 · 同步自最近推送的仓库（课程成果链 / ai-pulse / ontology-driven-dev）</sub>
