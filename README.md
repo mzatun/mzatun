@@ -3,12 +3,14 @@
 <p align="left">
   <img src="https://img.shields.io/badge/location-Meizhou,China-blue?style=flat&logo=google-maps" alt="Location">
   <img src="https://img.shields.io/badge/role-Dual--Qualified%20Teacher-green?style=flat&logo=academia" alt="Role">
+  <img src="https://img.shields.io/badge/产教研融合-Industry%20%C3%97%20Education%20%C3%97%20Research-red?style=flat&logo=sync" alt="产教研融合">
   <img src="https://img.shields.io/badge/focus-GIS%20%7C%20AI%20Engineering-orange?style=flat&logo=python" alt="Focus">
   <img src="https://img.shields.io/badge/OPC-Consultant-purple?style=flat&logo=handshake" alt="OPC">
 </p>
 
-🎓 **双师型教师**（嘉应学院 · GIS/测绘遥感地理信息）  
+🎓 **双师型教师**（嘉应学院 · GIS/测绘遥感地理信息）——**站上讲台能教学，下到企业能交付**  
 🛠️ **独立开发者** · **AI 全链路交付者** · **OPC 一人企业咨询师**  
+🔄 **产教研融合实践者**：产业交付反哺课堂案例，教学沉淀为开源课程，科研前瞻转化为业务方案  
 📍 广东梅州，服务粤东区域发展与低空经济示范区建设
 
 <p align="center">
@@ -18,13 +20,13 @@
   <a href="https://mzatun.github.io/#live">
     <img src="https://img.shields.io/badge/🚀%20打开即用-Live%20Demos-2ea043?style=for-the-badge" alt="在线演示">
   </a>
-  <a href="https://mzatun.github.io/">
-    <img src="https://img.shields.io/badge/📥%20接%20GIS·遥感·AI%20定制-闲鱼%2F微信-orange?style=for-the-badge" alt="接单定制">
+  <a href="#-合作与联系--contact">
+    <img src="https://img.shields.io/badge/🤝%20业务合作-微信%20%2F%20GitHub%20Issue-orange?style=for-the-badge" alt="业务合作">
   </a>
 </p>
 
-> 🟢 **当前开放接单**：GIS/遥感数据处理 · ArcPy 脚本工具 · 深度学习模型训练 · 无人机/三维建模 · 教学课件与毕业设计技术指导 · 标书与技术方案编写。  
-> 渠道：闲鱼搜索「龙虾GIS」 / 微信（备注"业务咨询"）/ 本仓库 GitHub Issue。建议先看 [在线作品站](https://mzatun.github.io/) 确认匹配度，再聊需求。
+> 🟢 **当前开放合作**：GIS/遥感数据处理 · ArcPy 脚本工具 · 深度学习模型训练 · 无人机/三维建模 · 企业培训与课程共建 · 标书与技术方案编写。  
+> 渠道：微信（备注"业务咨询"）/ 本仓库 GitHub Issue。建议先看 [在线作品站](https://mzatun.github.io/) 确认匹配度，再聊需求。
 
 ---
 
@@ -45,6 +47,16 @@
     =
 双师型三位一体交付能力
 ```
+
+**产教研融合，不是口号，是走通的闭环**：
+
+| 环 | 载体 | 2026 实证 |
+|----|------|----------|
+| 🏭 **产** · 产业交付 | OPC 五大板块：AI 智能体开发/培训 · 政务咨询 · 低空模型训练 · 企业 RAG 知识库 | 30+ 交付案例，工具已商业化落地 |
+| 🎓 **教** · 教学转化 | 嘉应学院真实课堂 + 课程成果链全量开源 | 9 月开源 3 门课程成果仓（53 份课程体系 + 117 页印刷级教材 PDF） |
+| 🔬 **研** · 科研反哺 | 工程问题升维为论文与咨政报告 | 咨政报告 30+；3DGS 空间智能 · VLM-LU · 低空经济方向 |
+
+> 三环互哺：**产业项目变成课堂案例 → 课堂沉淀成开源课程 → 工程问题升维为科研 → 科研方法回到下一次交付。** 每一环都不是成本，是下一环的燃料。
 
 **七业联动**支撑体系：教学相长 · AI 项目 · 脚本工具 · 内容生产 · 政策研究 · 数字业务 · 技能生态（170+ 自研技能，2026-09 实测）。
 
@@ -139,7 +151,6 @@
 - 🏫 **单位**：嘉应学院（广东 · 梅州）
 - 🌐 **GitHub**：[@mzatun](https://github.com/mzatun)
 - 💬 **业务合作**：微信（备注"业务咨询"）/ 通过 GitHub Issue
-- 🐟 **闲鱼接单**：搜索关键词「龙虾GIS」（GIS·遥感·AI 定制与咨询，含毕业设计技术指导）
 - 🖥️ **在线作品站**：[mzatun.github.io](https://mzatun.github.io/)（含打开即用 Live Demos，建议先看作品再聊需求）
 - 📍 **服务范围**：全国远程交付为主，珠三角/粤东可现场
 
@@ -147,4 +158,4 @@
 
 ---
 
-<sub>🕐 最后更新：2026-09-30 · 同步自最近推送的仓库（课程成果链 / ai-pulse / ontology-driven-dev）</sub>
+<sub>🕐 最后更新：2026-09-30 · 定位聚焦双师·产教研融合 · 同步自最近推送的仓库（课程成果链 / ai-pulse / ontology-driven-dev）</sub>
